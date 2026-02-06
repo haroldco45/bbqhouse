@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.B.Q. HOUSE - Alitas & Costillas</title>
+    <style>
+        :root {
+            --dorado: #d4af37;
+            --negro: #1a1a1a;
+            --gris-oscuro: #2d2d2d;
+            --blanco: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--negro);
+            color: var(--blanco);
+            margin: 0;
+            padding-bottom: 80px;
+        }
+
+        header {
+            background-color: var(--negro);
+            text-align: center;
+            padding: 20px;
+            border-bottom: 2px solid var(--dorado);
+        }
+
+        .logo {
+            max-width: 150px;
+            border-radius: 50%;
+            border: 2px solid var(--dorado);
+        }
+
+        .container {
+            padding: 15px;
+        }
+
+        .info-local {
+            text-align: center;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            color: var(--dorado);
+        }
+
+        /* Sección de Productos */
+        .producto-card {
+            background-color: var(--gris-oscuro);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            border: 1px solid #444;
+        }
+
+        .producto-img {
+            width: 100%;
+            height: 180px;
+            background-color: #444; /* Placeholder */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .producto-info {
+            padding: 15px;
+        }
+
+        .producto-titulo {
+            font-size: 1.2em;
+            margin: 0;
+            color: var(--dorado);
+        }
+
+        .producto-precio {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 5px 0;
+        }
+
+        .btn-agregar {
+            background-color: var(--dorado);
+            color: var(--negro);
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Formulario de Datos */
+        .seccion-datos {
+            background-color: var(--gris-oscuro);
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .campo {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.8em;
+            color: var(--dorado);
+            margin-bottom: 4px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid var(--dorado);
+            background: #000;
+            color: #fff;
+            box-sizing: border-box;
+        }
+
+        .btn-editar {
+            background: transparent;
+            color: var(--dorado);
+            border: 1px solid var(--dorado);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-top: 10px;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: var(--dorado);
+            color: var(--negro);
+            text-align: center;
+            padding: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="URL_DEL_LOGO" alt="B.B.Q. HOUSE" class="logo">
+        <h1>B.B.Q. HOUSE</h1>
+        <div class="info-local">
+            Cra. 24 #9b-34, Caucasia | Cel: 324 684 4148
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <h3 style="border-left: 4px solid var(--dorado); padding-left: 10px;">Menú Sugerido</h3>
+        
+        <div class="producto-card">
+            <div class="producto-img">
+                <span style="color: #888;">[ Imagen Alitas ]</span>
+            </div>
+            <div class="producto-info">
+                <p class="producto-titulo">Combo Alitas BBQ (x10)</p>
+                <p style="font-size: 0.85em; color: #bbb;">Acompañadas de papas a la francesa y salsa ranch.</p>
+                <p class="producto-precio">$25.000</p>
+                <button class="btn-agregar">Añadir al Pedido</button>
+            </div>
+        </div>
+
+        <div class="seccion-datos">
+            <h4 style="margin-top: 0;">Tus Datos</h4>
+            <div class="campo">
+                <label>Nombre Completo</label>
+                <input type="text" placeholder="Ej: Harold Marin">
+            </div>
+            <div class="campo">
+                <label>Correo Electrónico</label>
+                <input type="email" placeholder="correo@ejemplo.com">
+            </div>
+            <div class="campo">
+                <label>Dirección de Entrega</label>
+                <input type="text" placeholder="Cra, Calle, Barrio...">
+            </div>
+            <div class="campo">
+                <label>Medio de Pago</label>
+                <select>
+                    <option>Efectivo</option>
+                    <option>Nequi / Daviplata</option>
+                    <option>Transferencia Bancaria</option>
+                </select>
+            </div>
+            <button class="btn-editar">Editar mis datos</button>
+        </div>
+
+    </div>
+
+    <footer>
+        DOMICILIO: $5.000 | TOTAL A PAGAR: $0
+    </footer>
+
+</body>
+</html>
