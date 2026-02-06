@@ -1,201 +1,213 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B.B.Q. HOUSE - Alitas & Costillas</title>
+    <title>B.B.Q. HOUSE - App de Pedidos</title>
     <style>
         :root {
             --dorado: #d4af37;
-            --negro: #1a1a1a;
-            --gris-oscuro: #2d2d2d;
-            --blanco: #f4f4f4;
+            --negro: #000000;
+            --gris: #1c1c1c;
+            --blanco: #ffffff;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial', sans-serif;
             background-color: var(--negro);
             color: var(--blanco);
             margin: 0;
-            padding-bottom: 80px;
+            padding-bottom: 120px;
         }
 
-        header {
-            background-color: var(--negro);
+        .header {
             text-align: center;
             padding: 20px;
+            background: linear-gradient(180deg, #1a1a1a 0%, #000 100%);
             border-bottom: 2px solid var(--dorado);
         }
 
         .logo {
-            max-width: 150px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             border: 2px solid var(--dorado);
+            object-fit: cover;
         }
 
-        .container {
-            padding: 15px;
-        }
+        .container { padding: 15px; max-width: 600px; margin: auto; }
 
-        .info-local {
-            text-align: center;
-            font-size: 0.9em;
-            margin-bottom: 20px;
-            color: var(--dorado);
-        }
-
-        /* Sección de Productos */
-        .producto-card {
-            background-color: var(--gris-oscuro);
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 15px;
-            border: 1px solid #444;
-        }
-
-        .producto-img {
-            width: 100%;
-            height: 180px;
-            background-color: #444; /* Placeholder */
+        /* Estilo de productos tipo Criollitas */
+        .producto {
+            background: var(--gris);
+            border-radius: 10px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
-            justify-content: center;
-        }
-
-        .producto-info {
-            padding: 15px;
-        }
-
-        .producto-titulo {
-            font-size: 1.2em;
-            margin: 0;
-            color: var(--dorado);
-        }
-
-        .producto-precio {
-            font-weight: bold;
-            font-size: 1.1em;
-            margin: 5px 0;
-        }
-
-        .btn-agregar {
-            background-color: var(--dorado);
-            color: var(--negro);
-            border: none;
             padding: 10px;
-            width: 100%;
+            border: 1px solid #333;
+        }
+
+        .prod-info { flex-grow: 1; margin-left: 10px; }
+        .prod-name { color: var(--dorado); font-weight: bold; margin: 0; }
+        .prod-price { font-size: 0.9em; color: #aaa; }
+
+        .controles { display: flex; align-items: center; gap: 10px; }
+        .btn-cant {
+            background: var(--dorado);
+            border: none;
+            width: 30px;
+            height: 30px;
             border-radius: 5px;
             font-weight: bold;
             cursor: pointer;
         }
 
-        /* Formulario de Datos */
-        .seccion-datos {
-            background-color: var(--gris-oscuro);
+        /* Formulario de Cliente */
+        .seccion-cliente {
+            background: #111;
             padding: 15px;
-            border-radius: 12px;
+            border-radius: 10px;
             margin-top: 20px;
-        }
-
-        .campo {
-            margin-bottom: 10px;
-        }
-
-        label {
-            display: block;
-            font-size: 0.8em;
-            color: var(--dorado);
-            margin-bottom: 4px;
+            border: 1px solid var(--dorado);
         }
 
         input, select {
             width: 100%;
-            padding: 8px;
-            border-radius: 4px;
-            border: 1px solid var(--dorado);
+            padding: 10px;
+            margin: 8px 0;
             background: #000;
-            color: #fff;
-            box-sizing: border-box;
+            border: 1px solid #444;
+            color: white;
+            border-radius: 5px;
         }
 
-        .btn-editar {
-            background: transparent;
-            color: var(--dorado);
-            border: 1px solid var(--dorado);
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.8em;
-            margin-top: 10px;
-        }
-
-        footer {
+        .footer-total {
             position: fixed;
             bottom: 0;
             width: 100%;
             background: var(--dorado);
-            color: var(--negro);
-            text-align: center;
+            color: black;
             padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
+        }
+
+        .btn-enviar {
+            background: #25d366;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            width: 90%;
+            font-size: 1.1em;
+            margin-top: 10px;
+            cursor: pointer;
             font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <img src="URL_DEL_LOGO" alt="B.B.Q. HOUSE" class="logo">
-        <h1>B.B.Q. HOUSE</h1>
-        <div class="info-local">
-            Cra. 24 #9b-34, Caucasia | Cel: 324 684 4148
-        </div>
-    </header>
+<div class="header">
+    <img src="bbq-house.PNG" class="logo" alt="Logo BBQ House">
+    <h2 style="margin: 10px 0 0 0; color: var(--dorado);">B.B.Q. HOUSE</h2>
+    <p style="font-size: 0.8em; margin: 5px 0;">Cra. 24 #9b-34, Caucasia</p>
+</div>
 
-    <div class="container">
-        
-        <h3 style="border-left: 4px solid var(--dorado); padding-left: 10px;">Menú Sugerido</h3>
-        
-        <div class="producto-card">
-            <div class="producto-img">
-                <span style="color: #888;">[ Imagen Alitas ]</span>
-            </div>
-            <div class="producto-info">
-                <p class="producto-titulo">Combo Alitas BBQ (x10)</p>
-                <p style="font-size: 0.85em; color: #bbb;">Acompañadas de papas a la francesa y salsa ranch.</p>
-                <p class="producto-precio">$25.000</p>
-                <button class="btn-agregar">Añadir al Pedido</button>
-            </div>
+<div class="container">
+    <h3 style="border-left: 4px solid var(--dorado); padding-left: 10px;">MENÚ</h3>
+    
+    <div class="producto">
+        <div style="font-size: 1.5em;">🍗</div>
+        <div class="prod-info">
+            <p class="prod-name">Alitas BBQ (x10)</p>
+            <p class="prod-price">$25.000</p>
         </div>
-
-        <div class="seccion-datos">
-            <h4 style="margin-top: 0;">Tus Datos</h4>
-            <div class="campo">
-                <label>Nombre Completo</label>
-                <input type="text" placeholder="Ej: Harold Marin">
-            </div>
-            <div class="campo">
-                <label>Correo Electrónico</label>
-                <input type="email" placeholder="correo@ejemplo.com">
-            </div>
-            <div class="campo">
-                <label>Dirección de Entrega</label>
-                <input type="text" placeholder="Cra, Calle, Barrio...">
-            </div>
-            <div class="campo">
-                <label>Medio de Pago</label>
-                <select>
-                    <option>Efectivo</option>
-                    <option>Nequi / Daviplata</option>
-                    <option>Transferencia Bancaria</option>
-                </select>
-            </div>
-            <button class="btn-editar">Editar mis datos</button>
+        <div class="controles">
+            <button class="btn-cant" onclick="cambiarCant(-1)">-</button>
+            <span id="cant-1">0</span>
+            <button class="btn-cant" onclick="cambiarCant(1)">+</button>
         </div>
-
     </div>
 
-    <footer>
-        DOMICILIO: $5.000 | TOTAL A PAGAR: $0
-    </footer>
+    <div class="seccion-cliente">
+        <label style="color: var(--dorado); font-size: 0.8em;">DATOS DE ENTREGA</label>
+        <input type="text" id="nombre" placeholder="Nombre completo" oninput="guardarDatos()">
+        <input type="email" id="correo" placeholder="Correo electrónico" oninput="guardarDatos()">
+        <input type="text" id="direccion" placeholder="Dirección exacta en Caucasia" oninput="guardarDatos()">
+        <select id="pago" onchange="guardarDatos()">
+            <option value="Efectivo">Efectivo</option>
+            <option value="Nequi">Nequi</option>
+            <option value="Bancolombia">Transferencia</option>
+        </select>
+        <button onclick="localStorage.clear(); location.reload();" style="background: none; border: none; color: #666; font-size: 0.7em; cursor: pointer;">Limpiar/Editar datos</button>
+    </div>
+
+    <button class="btn-enviar" onclick="enviarPedido()">🚀 ENVIAR PEDIDO POR WHATSAPP</button>
+</div>
+
+<div class="footer-total">
+    TOTAL (Inc. Domicilio $5.000): <span id="total-final">$5.000</span>
+</div>
+
+<script>
+    let cantidad = 0;
+    const precioUnitario = 25000;
+    const domicilio = 5000;
+
+    // Cargar datos guardados (Como en Criollitas)
+    window.onload = function() {
+        document.getElementById('nombre').value = localStorage.getItem('bbq_nombre') || '';
+        document.getElementById('correo').value = localStorage.getItem('bbq_correo') || '';
+        document.getElementById('direccion').value = localStorage.getItem('bbq_direccion') || '';
+        document.getElementById('pago').value = localStorage.getItem('bbq_pago') || 'Efectivo';
+    }
+
+    function guardarDatos() {
+        localStorage.setItem('bbq_nombre', document.getElementById('nombre').value);
+        localStorage.setItem('bbq_correo', document.getElementById('correo').value);
+        localStorage.setItem('bbq_direccion', document.getElementById('direccion').value);
+        localStorage.setItem('bbq_pago', document.getElementById('pago').value);
+    }
+
+    function cambiarCant(valor) {
+        cantidad = Math.max(0, cantidad + valor);
+        document.getElementById('cant-1').innerText = cantidad;
+        actualizarTotal();
+    }
+
+    function actualizarTotal() {
+        let total = (cantidad * precioUnitario) + domicilio;
+        document.getElementById('total-final').innerText = "$" + total.toLocaleString('es-CO');
+    }
+
+    function enviarPedido() {
+        const nombre = document.getElementById('nombre').value;
+        const direccion = document.getElementById('direccion').value;
+        const pago = document.getElementById('pago').value;
+        
+        if(!nombre || !direccion || cantidad === 0) {
+            alert("Por favor ingresa tus datos y al menos un producto.");
+            return;
+        }
+
+        let total = (cantidad * precioUnitario) + domicilio;
+        let mensaje = `*PEDIDO BBQ HOUSE*%0A` +
+                      `--------------------------%0A` +
+                      `*Cliente:* ${nombre}%0A` +
+                      `*Dirección:* ${direccion}%0A` +
+                      `*Pago:* ${pago}%0A` +
+                      `--------------------------%0A` +
+                      `*Pedido:* ${cantidad} x Alitas BBQ%0A` +
+                      `*Domicilio:* $5.000%0A` +
+                      `*TOTAL A PAGAR:* $${total.toLocaleString('es-CO')}`;
+
+        window.open(`https://wa.me/573246844148?text=${mensaje}`, '_blank');
+    }
+</script>
 
 </body>
 </html>
